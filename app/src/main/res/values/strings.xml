@@ -1,0 +1,283 @@
+<resources>
+    <string name="app_name">Label Manager</string>
+
+    <string name="common_back">Back</string>
+    <string name="common_coming_soon_title">Almost there</string>
+    <string name="common_coming_soon_message">This screen arrives in the next update.</string>
+
+    <string name="welcome_title">Label Manager</string>
+    <string name="welcome_tagline">Run a record label, trade artist contracts on a live market and watch your roster’s value grow.</string>
+    <string name="welcome_fact_artists">16 artists</string>
+    <string name="welcome_fact_budget">$3M budget</string>
+    <string name="welcome_fact_market">Live market</string>
+    <string name="welcome_create_account">Create account</string>
+    <string name="welcome_sign_in">I already have an account</string>
+    <string name="welcome_logo_description">Label Manager logo</string>
+
+    <string name="home_tab_roster">Roster</string>
+    <string name="home_tab_market">Market</string>
+    <string name="home_tab_activity">Activity</string>
+    <string name="home_tab_profile">Profile</string>
+
+    <string name="common_retry">Try again</string>
+    <string name="common_close">Close</string>
+    <string name="common_remove">Remove %1$s</string>
+    <string name="common_clear_search">Clear search</string>
+    <string name="common_amount_hidden">Hidden amount</string>
+    <string name="common_value_up">Up</string>
+    <string name="common_value_down">Down</string>
+    <string name="common_show_budget">Show budget</string>
+    <string name="common_hide_budget">Hide budget</string>
+    <string name="common_just_now">Just now</string>
+    <string name="common_loading">Loading</string>
+
+    <string name="auth_email_label">Email</string>
+    <string name="auth_email_placeholder">you@label.com</string>
+    <string name="auth_password_label">Password</string>
+    <string name="auth_repeat_password_label">Repeat password</string>
+    <string name="auth_email_invalid">Enter a valid email address</string>
+    <string name="auth_email_taken">An account with this email already exists</string>
+    <string name="auth_password_mismatch">Passwords don’t match</string>
+    <string name="auth_password_rule_length">8+ characters</string>
+    <string name="auth_password_rule_letter">A letter</string>
+    <string name="auth_password_rule_digit">A number</string>
+    <string name="auth_password_rule_met">Done</string>
+    <string name="auth_password_rule_missing">Missing</string>
+    <string name="auth_error_credentials_title">Wrong email or password</string>
+    <string name="auth_error_credentials_message">Check both fields and try again.</string>
+    <string name="auth_error_network_title">No connection</string>
+    <string name="auth_error_network_message">Check your internet connection and try again.</string>
+    <string name="auth_error_generic_title">Something went wrong</string>
+    <string name="auth_error_generic_message">Please try again in a moment.</string>
+
+    <string name="sign_in_title">Welcome back</string>
+    <string name="sign_in_subtitle">Sign in with the email you used to create your label.</string>
+    <string name="sign_in_submit">Sign in</string>
+    <string name="sign_in_footer">New here?</string>
+    <string name="sign_in_footer_action">Create account</string>
+
+    <string name="sign_up_title">Start your label</string>
+    <string name="sign_up_subtitle">One account, one label. We’ll sign 16 artists and open a $3M budget for you.</string>
+    <string name="sign_up_submit">Create label</string>
+    <string name="sign_up_footer">Already have an account?</string>
+    <string name="sign_up_footer_action">Sign in</string>
+
+    <string name="label_ready_title">Your label is ready</string>
+    <string name="label_ready_subtitle">We signed a full roster and opened your budget.</string>
+    <string name="label_ready_country">%1$s · you can rename it any time</string>
+    <string name="label_ready_budget">Signing budget</string>
+    <string name="label_ready_budget_hint">The same for every new label</string>
+    <string name="label_ready_roster_value">Roster value · %1$d artists</string>
+    <string name="label_ready_continue">Meet the roster</string>
+    <string name="label_ready_error_title">Couldn’t load your label</string>
+    <string name="label_ready_error_message">Check your connection and try again.</string>
+
+    <string name="genre_short_pop">POP</string>
+    <string name="genre_short_rock">RCK</string>
+    <string name="genre_short_hip_hop">HIP</string>
+    <string name="genre_short_electronic">EDM</string>
+
+    <string name="roster_edit_label">Edit label</string>
+    <string name="roster_budget">Budget</string>
+    <string name="roster_value">Roster value</string>
+    <plurals name="roster_artist_count">
+        <item quantity="one">%d artist</item>
+        <item quantity="other">%d artists</item>
+    </plurals>
+    <string name="roster_search_placeholder">Search artists</string>
+    <string name="roster_for_sale">For sale · %1$s</string>
+    <string name="roster_artist_meta">%1$s %2$s · %3$s</string>
+    <string name="roster_offline_title">You’re offline</string>
+    <string name="roster_stale_title">Couldn’t update the roster</string>
+    <string name="roster_stale_message">Showing saved data from %1$s</string>
+    <string name="roster_no_results_title">No artists match “%1$s”</string>
+    <string name="roster_no_results_message">Search looks at first and last names in your roster. Try a shorter part of the name.</string>
+    <string name="roster_error_title">Couldn’t load your roster</string>
+    <string name="roster_error_message">Check your connection and try again.</string>
+
+    <plurals name="artist_age">
+        <item quantity="one">%d y.o.</item>
+        <item quantity="other">%d y.o.</item>
+    </plurals>
+
+    <string name="genre_title_pop">Pop</string>
+    <string name="genre_title_rock">Rock</string>
+    <string name="genre_title_hip_hop">Hip-hop</string>
+    <string name="genre_title_electronic">Electronic</string>
+
+    <string name="common_save">Save</string>
+    <string name="common_country">Country</string>
+    <string name="common_error_network">No connection. Check your internet and try again.</string>
+    <string name="common_error_generic">Something went wrong. Please try again.</string>
+
+    <string name="country_picker_title">Country</string>
+    <string name="country_picker_search">Search countries</string>
+
+    <string name="genre_name_pop">Pop</string>
+    <string name="genre_name_rock">Rock</string>
+    <string name="genre_name_hip_hop">Hip-hop</string>
+    <string name="genre_name_electronic">Electronic</string>
+
+    <string name="edit_label_title">Edit label</string>
+    <string name="edit_label_caption">Shown to other managers on the market</string>
+    <string name="edit_label_name_label">Label name</string>
+    <string name="edit_label_name_invalid">Use %1$d to %2$d characters</string>
+    <string name="edit_label_note">Budget and roster value are set by the market and can’t be edited.</string>
+
+    <string name="edit_artist_title">Edit artist</string>
+    <string name="edit_artist_first_name">First name</string>
+    <string name="edit_artist_last_name">Last name</string>
+    <string name="edit_artist_name_invalid">Use 1 to %1$d characters</string>
+    <string name="edit_artist_summary">%1$s · %2$s · %3$s</string>
+    <string name="edit_artist_note">Age, genre and market value are set by the game and can’t be edited.</string>
+    <string name="edit_artist_not_found">This artist is no longer on your roster.</string>
+
+    <string name="artist_edit">Edit</string>
+    <string name="artist_market_value">Market value</string>
+    <string name="artist_value_rise">%1$s since last deal</string>
+    <string name="artist_age_label">Age</string>
+    <string name="artist_hits">Chart hits</string>
+    <string name="artist_label">Label</string>
+    <string name="artist_listed_title">On the market · %1$s</string>
+    <string name="artist_listed_price">Asking %1$s</string>
+    <string name="artist_price_above_value">%1$s above market value</string>
+    <string name="artist_price_below_value">%1$s below market value</string>
+    <string name="artist_price_at_value">Equal to market value</string>
+    <string name="artist_history_title">Contract history</string>
+    <string name="artist_history_fee">Deal price %1$s</string>
+    <string name="artist_history_value">Market value %1$s → %2$s</string>
+    <string name="artist_history_founding">Signed at the label’s launch · value %1$s</string>
+    <string name="artist_error_title">Couldn’t load the artist</string>
+    <string name="artist_error_message">Check your connection and try again.</string>
+
+    <string name="market_title">Market</string>
+    <string name="market_search_artists">Artist name</string>
+    <string name="market_search_labels">Label name</string>
+    <string name="market_scope_artists">Artists</string>
+    <string name="market_scope_labels">Labels</string>
+    <string name="market_filters">Filters</string>
+    <string name="market_filters_active">Filters, %1$d active</string>
+    <string name="market_clear">Clear</string>
+    <string name="market_listings">Listings</string>
+    <string name="market_sort_newest">Newest</string>
+    <string name="market_sort_price_ascending">Cheapest</string>
+    <string name="market_sort_price_descending">Most expensive</string>
+    <string name="market_listing_meta">%1$s · %2$s · %3$s</string>
+    <string name="market_buy">Buy</string>
+    <string name="market_yours">Yours</string>
+    <string name="market_sell_artist">Sell an artist</string>
+    <string name="market_chip_price_range">%1$s–%2$s</string>
+    <string name="market_chip_price_from">From %1$s</string>
+    <string name="market_chip_price_up_to">Up to %1$s</string>
+    <string name="market_chip_artist_country">%1$s Artists: %2$s</string>
+    <string name="market_chip_label_country">%1$s Labels: %2$s</string>
+    <string name="market_empty_title">The market is quiet</string>
+    <string name="market_empty_message">Nobody is selling right now. Rival labels list artists every few minutes — pull down to check again.</string>
+    <string name="market_no_results_title">Nothing matches these filters</string>
+    <string name="market_no_results_message">Widen the price range or check back later — rival labels list artists every few minutes.</string>
+    <string name="market_clear_filters">Clear filters</string>
+    <string name="market_error_title">Couldn’t load the market</string>
+    <string name="market_error_message">Check your connection and try again.</string>
+    <string name="market_load_more_failed">Couldn’t load more artists</string>
+
+    <string name="filters_title">Filters</string>
+    <string name="filters_price">Asking price</string>
+    <string name="filters_price_any">Any price</string>
+    <string name="filters_genre">Genre</string>
+    <string name="filters_country">Country</string>
+    <string name="filters_artist_country">Artist country</string>
+    <string name="filters_label_country">Label country</string>
+    <string name="filters_any">Any</string>
+    <string name="filters_reset">Reset</string>
+    <string name="filters_show_count">Show %1$s</string>
+    <string name="filters_show">Show artists</string>
+    <plurals name="filters_artist_count">
+        <item quantity="one">%d artist</item>
+        <item quantity="other">%d artists</item>
+    </plurals>
+    <string name="country_picker_any">Any country</string>
+
+    <string name="market_buy_budget">Your budget</string>
+    <string name="market_buy_price">Asking price</string>
+    <string name="market_buy_after">Budget after</string>
+    <string name="market_buy_short_label">Short by</string>
+    <string name="market_buy_note" formatted="false">After the deal their value grows by 5% per chart hit, up to 50%.</string>
+    <string name="market_buy_short">You’re %1$s short. Sell an artist first — the asking price goes straight into your budget.</string>
+    <string name="market_buy_confirm">Confirm purchase</string>
+    <string name="market_buy_cancel">Cancel</string>
+    <string name="market_buy_not_now">Not now</string>
+    <string name="market_buy_gone">Someone was faster — this artist is no longer for sale.</string>
+
+    <string name="deal_done_welcome">Welcome to %1$s</string>
+    <string name="deal_done_new_value">New market value</string>
+    <string name="deal_done_paid">You paid</string>
+    <string name="deal_done_budget_left">Budget left</string>
+    <string name="deal_done_see_artist">See them on your roster</string>
+    <string name="deal_done_back">Back to market</string>
+
+    <string name="select_artist_title">Sell an artist</string>
+    <string name="select_artist_intro">Pick who goes on the market. You’ll set the asking price next.</string>
+    <string name="select_artist_search">Search your roster</string>
+
+    <string name="create_listing_title">New listing</string>
+    <string name="create_listing_price_label">Asking price</string>
+    <string name="create_listing_price_invalid">Enter a price above $0</string>
+    <string name="create_listing_quick_value">Value</string>
+    <string name="create_listing_above">%1$s above value (+%2$s).</string>
+    <string name="create_listing_below">%1$s below value (−%2$s).</string>
+    <string name="create_listing_at_value">Exactly the market value.</string>
+    <string name="create_listing_buyer_pays">The buyer pays exactly this price and it goes straight to your budget.</string>
+    <string name="create_listing_submit">List for %1$s</string>
+    <string name="create_listing_submit_empty">List artist</string>
+    <string name="create_listing_footer">You can remove the listing any time before it sells.</string>
+    <string name="create_listing_already_listed">This artist is already on the market.</string>
+
+    <string name="artist_put_on_list">Put on the market</string>
+    <string name="artist_remove_from_list">Remove from the market</string>
+    <string name="artist_buy_for">Buy for %1$s</string>
+    <string name="artist_budget_after">Budget after purchase · %1$s</string>
+    <string name="artist_market_listing_title">Asking price · listed %1$s</string>
+
+    <string name="activity_title">Activity</string>
+    <string name="activity_mark_all_read">Mark all read</string>
+    <string name="activity_filter_all">All</string>
+    <string name="activity_filter_sales">Sales</string>
+    <string name="activity_filter_purchases">Purchases</string>
+    <string name="activity_filter_listings">Listings</string>
+    <string name="activity_today">Today</string>
+    <string name="activity_yesterday">Yesterday</string>
+    <string name="activity_unread">Unread</string>
+    <string name="activity_sold_title">%1$s bought %2$s</string>
+    <string name="activity_sold_subtitle">Asking price paid in full</string>
+    <string name="activity_bought_title">You signed %1$s</string>
+    <string name="activity_bought_subtitle">From %1$s\nValue now %2$s (+%3$s)</string>
+    <string name="activity_bought_subtitle_short">From %1$s</string>
+    <string name="activity_listed_title">%1$s is on the market</string>
+    <string name="activity_listed_subtitle">Asking %1$s</string>
+    <string name="activity_unlisted_title">%1$s is off the market</string>
+    <string name="activity_unlisted_subtitle">Listing removed</string>
+    <string name="activity_empty_title">Nothing has happened yet</string>
+    <string name="activity_empty_message">Your label’s deals and listings show up here. Put an artist on the market or buy one to get started.</string>
+    <string name="activity_error_title">Couldn’t load activity</string>
+
+    <string name="notification_channel_sales">Artist sales</string>
+    <string name="notification_channel_sales_description">When a rival label buys one of your artists</string>
+    <string name="notification_sale_title">%1$s bought %2$s</string>
+    <string name="notification_sale_text">%1$s added to your budget</string>
+
+    <string name="profile_title">Profile</string>
+    <string name="profile_signed_in">Signed in</string>
+    <string name="profile_roster_value">%1$s roster value</string>
+    <string name="profile_preferences">Preferences</string>
+    <string name="profile_sale_alerts">Sale alerts</string>
+    <string name="profile_sale_alerts_hint">A notification when a rival label buys your artist</string>
+    <string name="profile_appearance">Appearance</string>
+    <string name="profile_theme_system">System</string>
+    <string name="profile_theme_light">Light</string>
+    <string name="profile_theme_dark">Dark</string>
+    <string name="profile_language">Language</string>
+    <string name="profile_version">Version</string>
+    <string name="profile_sign_out">Sign out</string>
+    <string name="profile_sign_out_title">Sign out?</string>
+    <string name="profile_sign_out_message">Your label stays safe on the server. Sign in with %1$s to pick up where you left off.</string>
+</resources>
