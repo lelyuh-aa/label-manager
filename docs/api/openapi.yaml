@@ -1,0 +1,570 @@
+openapi: 3.1.0
+info:
+  title: Label Manager API
+  version: 1.0.0
+  description: |
+    REST API of the Label Manager game. Users sign up with an email and a password and get a
+    record label with 16 generated artists, four in each genre (pop, rock, hip-hop, electronic),
+    and a budget of $3,000,000. Owners edit their label and artists, put artists on the market
+    with an asking price and buy artists listed by other labels. A deal moves the asking price
+    between the budgets and raises the artist's market value by 5 % per chart hit, from 5 % up
+    to 50 %.
+
+    Rival labels run by the server trade on the market as well, so the market is never empty.
+
+    All amounts are whole US dollars. Instants are ISO 8601 UTC strings, dates are `YYYY-MM-DD`,
+    countries are ISO 3166-1 alpha-2 codes from `GET /api/v1/countries`.
+
+    Every endpoint except `auth/*` and `countries` needs `Authorization: Bearer <accessToken>`.
+    Access tokens live 15 minutes; exchange the refresh token at `auth/refresh` for a new pair.
+servers:
+  - url: http://localhost:8080
+    description: Local development server (`./gradlew :server:run`)
+  - url: http://10.0.2.2:8080
+    description: The local server as seen from the Android emulator
+tags:
+  - name: Auth
+  - name: Label
+  - name: Artists
+  - name: Market
+  - name: Activity
+  - name: Reference
+security:
+  - bearerAuth: []
+paths:
+  /api/v1/auth/register:
+    post:
+      tags: [Auth]
+      summary: Create an account and its label
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RegisterRequest' }
+      responses:
+        '201':
+          description: The account was created; the user is signed in.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AuthResponse' }
+        '409': { $ref: '#/components/responses/EmailTaken' }
+        '422': { $ref: '#/components/responses/ValidationFailed' }
+  /api/v1/auth/login:
+    post:
+      tags: [Auth]
+      summary: Sign in
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/LoginRequest' }
+      responses:
+        '200':
+          description: Signed in.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AuthResponse' }
+        '401': { $ref: '#/components/responses/InvalidCredentials' }
+        '422': { $ref: '#/components/responses/ValidationFailed' }
+  /api/v1/auth/refresh:
+    post:
+      tags: [Auth]
+      summary: Exchange a refresh token for a new token pair
+      description: The refresh token rotates; the old one stops working.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RefreshRequest' }
+      responses:
+        '200':
+          description: A new token pair.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AuthResponse' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /api/v1/auth/logout:
+    post:
+      tags: [Auth]
+      summary: Revoke a refresh token
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RefreshRequest' }
+      responses:
+        '204': { description: Revoked; unknown tokens are ignored. }
+  /api/v1/me:
+    get:
+      tags: [Auth]
+      summary: The signed-in account
+      responses:
+        '200':
+          description: The account.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/User' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /api/v1/label:
+    get:
+      tags: [Label]
+      summary: The caller's label with its roster
+      responses:
+        '200':
+          description: The label.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Label' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+    patch:
+      tags: [Label]
+      summary: Rename the label or change its country
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/UpdateLabelRequest' }
+      responses:
+        '200':
+          description: The updated label.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Label' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '422': { $ref: '#/components/responses/ValidationFailed' }
+  /api/v1/artists/{artistId}:
+    parameters:
+      - $ref: '#/components/parameters/ArtistId'
+    get:
+      tags: [Artists]
+      summary: Any artist with the owning label and the deal history
+      responses:
+        '200':
+          description: The artist.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ArtistDetails' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    patch:
+      tags: [Artists]
+      summary: Edit the name or country of one of the caller's artists
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/UpdateArtistRequest' }
+      responses:
+        '200':
+          description: The updated artist.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Artist' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/ValidationFailed' }
+  /api/v1/market/listings:
+    get:
+      tags: [Market]
+      summary: Artists on the market
+      description: |
+        Text filters are case-insensitive substring matches. Pages are cursor based: pass the
+        `nextCursor` of a page to get the next one; items never repeat between pages even while
+        the market changes.
+      parameters:
+        - { name: artistName, in: query, schema: { type: string }, description: Part of the artist's full name }
+        - { name: labelName, in: query, schema: { type: string }, description: Part of the selling label's name }
+        - { name: artistCountry, in: query, schema: { $ref: '#/components/schemas/CountryCode' } }
+        - { name: labelCountry, in: query, schema: { $ref: '#/components/schemas/CountryCode' } }
+        - { name: minPrice, in: query, schema: { type: integer, format: int64 } }
+        - { name: maxPrice, in: query, schema: { type: integer, format: int64 } }
+        - name: genres
+          in: query
+          description: Comma-separated genres, e.g. `POP,ROCK`
+          schema: { type: string }
+        - { name: sort, in: query, schema: { $ref: '#/components/schemas/ListingSort' } }
+        - { name: cursor, in: query, schema: { type: string } }
+        - { name: limit, in: query, schema: { type: integer, minimum: 1, maximum: 50, default: 20 } }
+      responses:
+        '200':
+          description: One page of listings.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ListingPage' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '422': { $ref: '#/components/responses/ValidationFailed' }
+    post:
+      tags: [Market]
+      summary: Put one of the caller's artists on the market
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CreateListingRequest' }
+      responses:
+        '201':
+          description: The new listing.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Listing' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '409': { $ref: '#/components/responses/Conflict' }
+        '422': { $ref: '#/components/responses/ValidationFailed' }
+  /api/v1/market/listings/{listingId}:
+    parameters:
+      - $ref: '#/components/parameters/ListingId'
+    delete:
+      tags: [Market]
+      summary: Withdraw one of the caller's listings
+      responses:
+        '204': { description: Withdrawn. }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+  /api/v1/market/listings/{listingId}/purchase:
+    parameters:
+      - $ref: '#/components/parameters/ListingId'
+    post:
+      tags: [Market]
+      summary: Buy a listed artist for the asking price
+      description: |
+        Atomic: of two simultaneous buyers exactly one gets the artist, the other receives
+        `409 LISTING_NOT_AVAILABLE`.
+      responses:
+        '200':
+          description: The deal, the artist with the new value and the caller's new budget.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/PurchaseResult' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '409': { $ref: '#/components/responses/Conflict' }
+  /api/v1/activity:
+    get:
+      tags: [Activity]
+      summary: What happened to the caller's label, newest first
+      parameters:
+        - { name: cursor, in: query, schema: { type: string } }
+        - { name: limit, in: query, schema: { type: integer, minimum: 1, maximum: 50, default: 20 } }
+      responses:
+        '200':
+          description: One page of events with the unread count.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ActivityPage' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '422': { $ref: '#/components/responses/ValidationFailed' }
+  /api/v1/activity/read:
+    post:
+      tags: [Activity]
+      summary: Mark every event of the caller's label read
+      responses:
+        '204': { description: Marked read. }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /api/v1/activity/{eventId}/read:
+    parameters:
+      - name: eventId
+        in: path
+        required: true
+        schema: { type: string }
+    post:
+      tags: [Activity]
+      summary: Mark one event of the caller's label read
+      description: An unknown id or another label's event changes nothing.
+      responses:
+        '204': { description: Marked read. }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /api/v1/countries:
+    get:
+      tags: [Reference]
+      summary: Countries accepted for labels and artists
+      security: []
+      responses:
+        '200':
+          description: Countries sorted by name.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Country' }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    ArtistId:
+      name: artistId
+      in: path
+      required: true
+      schema: { type: string }
+    ListingId:
+      name: listingId
+      in: path
+      required: true
+      schema: { type: string }
+  responses:
+    ValidationFailed:
+      description: '`VALIDATION_FAILED`: see `fieldErrors`.'
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    EmailTaken:
+      description: '`EMAIL_TAKEN`'
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    InvalidCredentials:
+      description: '`INVALID_CREDENTIALS`'
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    Unauthorized:
+      description: '`UNAUTHORIZED`: missing, malformed or expired token.'
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    Forbidden:
+      description: '`FORBIDDEN`: the resource belongs to another label.'
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    NotFound:
+      description: '`NOT_FOUND`'
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    Conflict:
+      description: |
+        `ARTIST_ALREADY_LISTED`, `LISTING_NOT_AVAILABLE`, `CANNOT_BUY_OWN_ARTIST` or
+        `INSUFFICIENT_BUDGET`.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+  schemas:
+    CountryCode:
+      type: string
+      pattern: '^[A-Z]{2}$'
+      example: DE
+    Money:
+      type: integer
+      format: int64
+      description: Whole US dollars.
+      example: 1000000
+    Genre:
+      type: string
+      enum: [POP, ROCK, HIP_HOP, ELECTRONIC]
+    ListingSort:
+      type: string
+      enum: [NEWEST, PRICE_ASCENDING, PRICE_DESCENDING]
+      default: NEWEST
+    ErrorCode:
+      type: string
+      enum:
+        - VALIDATION_FAILED
+        - EMAIL_TAKEN
+        - INVALID_CREDENTIALS
+        - UNAUTHORIZED
+        - FORBIDDEN
+        - NOT_FOUND
+        - ARTIST_ALREADY_LISTED
+        - LISTING_NOT_AVAILABLE
+        - CANNOT_BUY_OWN_ARTIST
+        - INSUFFICIENT_BUDGET
+        - INTERNAL
+    Error:
+      type: object
+      required: [code, message]
+      properties:
+        code: { $ref: '#/components/schemas/ErrorCode' }
+        message: { type: string, description: For logs; clients branch on `code`. }
+        fieldErrors:
+          type: object
+          additionalProperties: { type: string }
+          example: { email: is not a valid email }
+    RegisterRequest:
+      type: object
+      required: [email, password]
+      properties:
+        email: { type: string, format: email, maxLength: 254 }
+        password: { type: string, minLength: 8, maxLength: 128 }
+    LoginRequest:
+      type: object
+      required: [email, password]
+      properties:
+        email: { type: string, format: email }
+        password: { type: string }
+    RefreshRequest:
+      type: object
+      required: [refreshToken]
+      properties:
+        refreshToken: { type: string }
+    AuthResponse:
+      type: object
+      required: [accessToken, accessTokenExpiresAt, refreshToken, user]
+      properties:
+        accessToken: { type: string }
+        accessTokenExpiresAt: { type: string, format: date-time }
+        refreshToken: { type: string }
+        user: { $ref: '#/components/schemas/User' }
+    User:
+      type: object
+      required: [id, email, labelId]
+      properties:
+        id: { type: string }
+        email: { type: string, format: email }
+        labelId: { type: string }
+    LabelSummary:
+      type: object
+      required: [id, name, countryCode]
+      properties:
+        id: { type: string }
+        name: { type: string }
+        countryCode: { $ref: '#/components/schemas/CountryCode' }
+    Label:
+      type: object
+      required: [id, name, countryCode, budget, value, artists]
+      properties:
+        id: { type: string }
+        name: { type: string, minLength: 2, maxLength: 40 }
+        countryCode: { $ref: '#/components/schemas/CountryCode' }
+        budget: { $ref: '#/components/schemas/Money' }
+        value: { allOf: [{ $ref: '#/components/schemas/Money' }], description: Sum of the artists' market values. }
+        artists:
+          type: array
+          items: { $ref: '#/components/schemas/Artist' }
+    UpdateLabelRequest:
+      type: object
+      description: Absent fields stay as they are.
+      properties:
+        name: { type: string, minLength: 2, maxLength: 40 }
+        countryCode: { $ref: '#/components/schemas/CountryCode' }
+    ListingSummary:
+      type: object
+      required: [id, askingPrice, listedAt]
+      properties:
+        id: { type: string }
+        askingPrice: { $ref: '#/components/schemas/Money' }
+        listedAt: { type: string, format: date-time }
+    Artist:
+      type: object
+      required: [id, labelId, firstName, lastName, countryCode, genre, birthDate, age, marketValue, hits]
+      properties:
+        id: { type: string }
+        labelId: { type: string }
+        firstName: { type: string, maxLength: 30 }
+        lastName: { type: string, maxLength: 30 }
+        countryCode: { $ref: '#/components/schemas/CountryCode' }
+        genre: { $ref: '#/components/schemas/Genre' }
+        birthDate: { type: string, format: date }
+        age: { type: integer, description: 18–45 when the artist is created. }
+        marketValue: { $ref: '#/components/schemas/Money' }
+        hits: { type: integer, description: Chart hits in the artist's career. }
+        listing: { $ref: '#/components/schemas/ListingSummary' }
+    UpdateArtistRequest:
+      type: object
+      description: Absent fields stay as they are.
+      properties:
+        firstName: { type: string, minLength: 1, maxLength: 30 }
+        lastName: { type: string, minLength: 1, maxLength: 30 }
+        countryCode: { $ref: '#/components/schemas/CountryCode' }
+    Deal:
+      type: object
+      required: [id, artistId, artistName, from, to, price, valueBefore, valueAfter, signedAt]
+      properties:
+        id: { type: string }
+        artistId: { type: string }
+        artistName: { type: string }
+        from: { $ref: '#/components/schemas/LabelSummary' }
+        to: { $ref: '#/components/schemas/LabelSummary' }
+        price: { $ref: '#/components/schemas/Money' }
+        valueBefore: { $ref: '#/components/schemas/Money' }
+        valueAfter: { $ref: '#/components/schemas/Money' }
+        signedAt: { type: string, format: date-time }
+    ArtistDetails:
+      type: object
+      required: [artist, label, deals]
+      properties:
+        artist: { $ref: '#/components/schemas/Artist' }
+        label: { $ref: '#/components/schemas/LabelSummary' }
+        deals:
+          type: array
+          description: Newest first.
+          items: { $ref: '#/components/schemas/Deal' }
+    Listing:
+      type: object
+      required: [id, artist, seller, askingPrice, listedAt]
+      properties:
+        id: { type: string }
+        artist: { $ref: '#/components/schemas/Artist' }
+        seller: { $ref: '#/components/schemas/LabelSummary' }
+        askingPrice: { $ref: '#/components/schemas/Money' }
+        listedAt: { type: string, format: date-time }
+    ListingPage:
+      type: object
+      required: [items, totalCount]
+      properties:
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/Listing' }
+        nextCursor: { type: string, description: Absent on the last page. }
+        totalCount: { type: integer }
+    CreateListingRequest:
+      type: object
+      required: [artistId, askingPrice]
+      properties:
+        artistId: { type: string }
+        askingPrice: { allOf: [{ $ref: '#/components/schemas/Money' }], minimum: 1, maximum: 1000000000 }
+    PurchaseResult:
+      type: object
+      required: [deal, artist, budget]
+      properties:
+        deal: { $ref: '#/components/schemas/Deal' }
+        artist: { $ref: '#/components/schemas/Artist' }
+        budget: { $ref: '#/components/schemas/Money' }
+    ActivityType:
+      type: string
+      enum: [ARTIST_BOUGHT, ARTIST_SOLD, ARTIST_LISTED, ARTIST_UNLISTED]
+    ActivityArtist:
+      type: object
+      required: [id, firstName, lastName, genre]
+      properties:
+        id: { type: string }
+        firstName: { type: string }
+        lastName: { type: string }
+        genre: { $ref: '#/components/schemas/Genre' }
+    ActivityEvent:
+      type: object
+      required: [id, type, occurredAt, artist, isRead]
+      properties:
+        id: { type: string }
+        type: { $ref: '#/components/schemas/ActivityType' }
+        occurredAt: { type: string, format: date-time }
+        artist: { $ref: '#/components/schemas/ActivityArtist' }
+        counterparty: { $ref: '#/components/schemas/LabelSummary' }
+        amount: { $ref: '#/components/schemas/Money' }
+        valueBefore: { $ref: '#/components/schemas/Money' }
+        valueAfter: { $ref: '#/components/schemas/Money' }
+        isRead: { type: boolean }
+    ActivityPage:
+      type: object
+      required: [items, unreadCount]
+      properties:
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/ActivityEvent' }
+        nextCursor: { type: string }
+        unreadCount: { type: integer }
+    Country:
+      type: object
+      required: [code, name]
+      properties:
+        code: { $ref: '#/components/schemas/CountryCode' }
+        name: { type: string }
