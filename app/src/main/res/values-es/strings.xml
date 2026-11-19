@@ -1,0 +1,286 @@
+<resources>
+    <string name="app_name">Label Manager</string>
+
+    <string name="common_back">Atrás</string>
+    <string name="common_coming_soon_title">Ya casi está</string>
+    <string name="common_coming_soon_message">Esta pantalla llegará en la próxima actualización.</string>
+
+    <string name="welcome_title">Label Manager</string>
+    <string name="welcome_tagline">Dirige un sello discográfico, negocia contratos de artistas en un mercado en vivo y mira cómo crece el valor de tu roster.</string>
+    <string name="welcome_fact_artists">16 artistas</string>
+    <string name="welcome_fact_budget">Presupuesto de 3 M$</string>
+    <string name="welcome_fact_market">Mercado en vivo</string>
+    <string name="welcome_create_account">Crear cuenta</string>
+    <string name="welcome_sign_in">Ya tengo una cuenta</string>
+    <string name="welcome_logo_description">Logotipo de Label Manager</string>
+
+    <string name="home_tab_roster">Roster</string>
+    <string name="home_tab_market">Mercado</string>
+    <string name="home_tab_activity">Actividad</string>
+    <string name="home_tab_profile">Perfil</string>
+
+    <string name="common_retry">Reintentar</string>
+    <string name="common_close">Cerrar</string>
+    <string name="common_remove">Quitar %1$s</string>
+    <string name="common_clear_search">Borrar búsqueda</string>
+    <string name="common_amount_hidden">Importe oculto</string>
+    <string name="common_value_up">Sube</string>
+    <string name="common_value_down">Baja</string>
+    <string name="common_show_budget">Mostrar presupuesto</string>
+    <string name="common_hide_budget">Ocultar presupuesto</string>
+    <string name="common_just_now">Ahora mismo</string>
+    <string name="common_loading">Cargando</string>
+
+    <string name="auth_email_label">Correo</string>
+    <string name="auth_email_placeholder">tu@sello.com</string>
+    <string name="auth_password_label">Contraseña</string>
+    <string name="auth_repeat_password_label">Repite la contraseña</string>
+    <string name="auth_email_invalid">Introduce un correo válido</string>
+    <string name="auth_email_taken">Ya existe una cuenta con este correo</string>
+    <string name="auth_password_mismatch">Las contraseñas no coinciden</string>
+    <string name="auth_password_rule_length">8+ caracteres</string>
+    <string name="auth_password_rule_letter">Una letra</string>
+    <string name="auth_password_rule_digit">Un número</string>
+    <string name="auth_password_rule_met">Cumplido</string>
+    <string name="auth_password_rule_missing">Falta</string>
+    <string name="auth_error_credentials_title">Correo o contraseña incorrectos</string>
+    <string name="auth_error_credentials_message">Revisa ambos campos e inténtalo de nuevo.</string>
+    <string name="auth_error_network_title">Sin conexión</string>
+    <string name="auth_error_network_message">Revisa tu conexión a internet e inténtalo de nuevo.</string>
+    <string name="auth_error_generic_title">Algo salió mal</string>
+    <string name="auth_error_generic_message">Inténtalo de nuevo en un momento.</string>
+
+    <string name="sign_in_title">Hola de nuevo</string>
+    <string name="sign_in_subtitle">Inicia sesión con el email con el que creaste tu sello.</string>
+    <string name="sign_in_submit">Iniciar sesión</string>
+    <string name="sign_in_footer">¿Eres nuevo?</string>
+    <string name="sign_in_footer_action">Crear cuenta</string>
+
+    <string name="sign_up_title">Crea tu sello</string>
+    <string name="sign_up_subtitle">Una cuenta, un sello. Firmaremos 16 artistas y abriremos un presupuesto de 3 M$ para ti.</string>
+    <string name="sign_up_submit">Crear sello</string>
+    <string name="sign_up_footer">¿Ya tienes una cuenta?</string>
+    <string name="sign_up_footer_action">Inicia sesión</string>
+
+    <string name="label_ready_title">Tu sello está listo</string>
+    <string name="label_ready_subtitle">Firmamos un roster completo y abrimos tu presupuesto.</string>
+    <string name="label_ready_country">%1$s · puedes cambiar el nombre cuando quieras</string>
+    <string name="label_ready_budget">Presupuesto para contratos</string>
+    <string name="label_ready_budget_hint">Igual para todos los sellos nuevos</string>
+    <string name="label_ready_roster_value">Valor del roster · %1$d artistas</string>
+    <string name="label_ready_continue">Conoce al roster</string>
+    <string name="label_ready_error_title">No se pudo cargar tu sello</string>
+    <string name="label_ready_error_message">Revisa tu conexión e inténtalo de nuevo.</string>
+
+    <string name="genre_short_pop">POP</string>
+    <string name="genre_short_rock">RCK</string>
+    <string name="genre_short_hip_hop">HIP</string>
+    <string name="genre_short_electronic">EDM</string>
+
+    <string name="roster_edit_label">Editar sello</string>
+    <string name="roster_budget">Presupuesto</string>
+    <string name="roster_value">Valor del roster</string>
+    <plurals name="roster_artist_count">
+        <item quantity="one">%d artista</item>
+        <item quantity="other">%d artistas</item>
+        <item quantity="many">%d de artistas</item>
+    </plurals>
+    <string name="roster_search_placeholder">Buscar artistas</string>
+    <string name="roster_for_sale">En venta · %1$s</string>
+    <string name="roster_artist_meta">%1$s %2$s · %3$s</string>
+    <string name="roster_offline_title">Sin conexión</string>
+    <string name="roster_stale_title">No se pudo actualizar el roster</string>
+    <string name="roster_stale_message">Datos guardados de %1$s</string>
+    <string name="roster_no_results_title">Ningún artista coincide con «%1$s»</string>
+    <string name="roster_no_results_message">La búsqueda mira nombres y apellidos de tu roster. Prueba con una parte más corta del nombre.</string>
+    <string name="roster_error_title">No se pudo cargar tu roster</string>
+    <string name="roster_error_message">Revisa tu conexión e inténtalo de nuevo.</string>
+
+    <plurals name="artist_age">
+        <item quantity="one">%d año</item>
+        <item quantity="other">%d años</item>
+        <item quantity="many">%d de años</item>
+    </plurals>
+
+    <string name="genre_title_pop">Pop</string>
+    <string name="genre_title_rock">Rock</string>
+    <string name="genre_title_hip_hop">Hip hop</string>
+    <string name="genre_title_electronic">Electrónica</string>
+
+    <string name="common_save">Guardar</string>
+    <string name="common_country">País</string>
+    <string name="common_error_network">Sin conexión. Revisa tu internet e inténtalo de nuevo.</string>
+    <string name="common_error_generic">Algo salió mal. Inténtalo de nuevo.</string>
+
+    <string name="country_picker_title">País</string>
+    <string name="country_picker_search">Buscar países</string>
+
+    <string name="genre_name_pop">Pop</string>
+    <string name="genre_name_rock">Rock</string>
+    <string name="genre_name_hip_hop">Hip hop</string>
+    <string name="genre_name_electronic">Electrónica</string>
+
+    <string name="edit_label_title">Editar sello</string>
+    <string name="edit_label_caption">Visible para otros mánagers en el mercado</string>
+    <string name="edit_label_name_label">Nombre del sello</string>
+    <string name="edit_label_name_invalid">Usa de %1$d a %2$d caracteres</string>
+    <string name="edit_label_note">El presupuesto y el valor del roster los fija el mercado y no se pueden editar.</string>
+
+    <string name="edit_artist_title">Editar artista</string>
+    <string name="edit_artist_first_name">Nombre</string>
+    <string name="edit_artist_last_name">Apellido</string>
+    <string name="edit_artist_name_invalid">Usa de 1 a %1$d caracteres</string>
+    <string name="edit_artist_summary">%1$s · %2$s · %3$s</string>
+    <string name="edit_artist_note">La edad, el género y el valor de mercado los fija el juego y no se pueden editar.</string>
+    <string name="edit_artist_not_found">Este artista ya no está en tu roster.</string>
+
+    <string name="artist_edit">Editar</string>
+    <string name="artist_market_value">Valor de mercado</string>
+    <string name="artist_value_rise">%1$s desde el último contrato</string>
+    <string name="artist_age_label">Edad</string>
+    <string name="artist_hits">Éxitos en listas</string>
+    <string name="artist_label">Sello</string>
+    <string name="artist_listed_title">En el mercado · %1$s</string>
+    <string name="artist_listed_price">Precio %1$s</string>
+    <string name="artist_price_above_value">%1$s por encima del valor de mercado</string>
+    <string name="artist_price_below_value">%1$s por debajo del valor de mercado</string>
+    <string name="artist_price_at_value">Igual al valor de mercado</string>
+    <string name="artist_history_title">Historial de contratos</string>
+    <string name="artist_history_fee">Precio del contrato %1$s</string>
+    <string name="artist_history_value">Valor de mercado %1$s → %2$s</string>
+    <string name="artist_history_founding">Firmado al crear el sello · valor %1$s</string>
+    <string name="artist_error_title">No se pudo cargar el artista</string>
+    <string name="artist_error_message">Revisa tu conexión e inténtalo de nuevo.</string>
+
+    <string name="market_title">Mercado</string>
+    <string name="market_search_artists">Nombre del artista</string>
+    <string name="market_search_labels">Nombre del sello</string>
+    <string name="market_scope_artists">Artistas</string>
+    <string name="market_scope_labels">Sellos</string>
+    <string name="market_filters">Filtros</string>
+    <string name="market_filters_active">Filtros, %1$d activos</string>
+    <string name="market_clear">Borrar</string>
+    <string name="market_listings">Ofertas</string>
+    <string name="market_sort_newest">Más recientes</string>
+    <string name="market_sort_price_ascending">Más baratos</string>
+    <string name="market_sort_price_descending">Más caros</string>
+    <string name="market_listing_meta">%1$s · %2$s · %3$s</string>
+    <string name="market_buy">Comprar</string>
+    <string name="market_yours">Tuyo</string>
+    <string name="market_sell_artist">Vender artista</string>
+    <string name="market_chip_price_range">%1$s–%2$s</string>
+    <string name="market_chip_price_from">Desde %1$s</string>
+    <string name="market_chip_price_up_to">Hasta %1$s</string>
+    <string name="market_chip_artist_country">%1$s Artistas: %2$s</string>
+    <string name="market_chip_label_country">%1$s Sellos: %2$s</string>
+    <string name="market_empty_title">El mercado está tranquilo</string>
+    <string name="market_empty_message">Nadie vende ahora mismo. Los sellos rivales ofrecen artistas cada pocos minutos: desliza hacia abajo para volver a mirar.</string>
+    <string name="market_no_results_title">Nada coincide con estos filtros</string>
+    <string name="market_no_results_message">Amplía el rango de precios o vuelve más tarde: los sellos rivales ofrecen artistas cada pocos minutos.</string>
+    <string name="market_clear_filters">Borrar filtros</string>
+    <string name="market_error_title">No se pudo cargar el mercado</string>
+    <string name="market_error_message">Revisa tu conexión e inténtalo de nuevo.</string>
+    <string name="market_load_more_failed">No se pudieron cargar más artistas</string>
+
+    <string name="filters_title">Filtros</string>
+    <string name="filters_price">Precio</string>
+    <string name="filters_price_any">Cualquier precio</string>
+    <string name="filters_genre">Género</string>
+    <string name="filters_country">País</string>
+    <string name="filters_artist_country">País del artista</string>
+    <string name="filters_label_country">País del sello</string>
+    <string name="filters_any">Cualquiera</string>
+    <string name="filters_reset">Restablecer</string>
+    <string name="filters_show_count">Mostrar %1$s</string>
+    <string name="filters_show">Mostrar artistas</string>
+    <plurals name="filters_artist_count">
+        <item quantity="one">%d artista</item>
+        <item quantity="other">%d artistas</item>
+        <item quantity="many">%d de artistas</item>
+    </plurals>
+    <string name="country_picker_any">Cualquier país</string>
+
+    <string name="market_buy_budget">Tu presupuesto</string>
+    <string name="market_buy_price">Precio</string>
+    <string name="market_buy_after">Presupuesto después</string>
+    <string name="market_buy_short_label">Faltan</string>
+    <string name="market_buy_note" formatted="false">Tras el contrato, su valor sube un 5% por cada éxito, hasta un 50%.</string>
+    <string name="market_buy_short">Te faltan %1$s. Vende primero un artista: el precio va directo a tu presupuesto.</string>
+    <string name="market_buy_confirm">Confirmar compra</string>
+    <string name="market_buy_cancel">Cancelar</string>
+    <string name="market_buy_not_now">Ahora no</string>
+    <string name="market_buy_gone">Alguien fue más rápido: este artista ya no está a la venta.</string>
+
+    <string name="deal_done_welcome">Bienvenido a %1$s</string>
+    <string name="deal_done_new_value">Nuevo valor de mercado</string>
+    <string name="deal_done_paid">Has pagado</string>
+    <string name="deal_done_budget_left">Presupuesto restante</string>
+    <string name="deal_done_see_artist">Verlo en tu roster</string>
+    <string name="deal_done_back">Volver al mercado</string>
+
+    <string name="select_artist_title">Vender un artista</string>
+    <string name="select_artist_intro">Elige a quién pones en el mercado. Luego fijarás el precio.</string>
+    <string name="select_artist_search">Buscar en tu roster</string>
+
+    <string name="create_listing_title">Nueva oferta</string>
+    <string name="create_listing_price_label">Precio</string>
+    <string name="create_listing_price_invalid">Introduce un precio mayor de 0 $</string>
+    <string name="create_listing_quick_value">Valor</string>
+    <string name="create_listing_above">%1$s por encima del valor (+%2$s).</string>
+    <string name="create_listing_below">%1$s por debajo del valor (−%2$s).</string>
+    <string name="create_listing_at_value">Exactamente el valor de mercado.</string>
+    <string name="create_listing_buyer_pays">El comprador paga exactamente este precio y va directo a tu presupuesto.</string>
+    <string name="create_listing_submit">Poner en venta por %1$s</string>
+    <string name="create_listing_submit_empty">Ofrecer artista</string>
+    <string name="create_listing_footer">Puedes retirar la oferta en cualquier momento antes de que se venda.</string>
+    <string name="create_listing_already_listed">Este artista ya está en el mercado.</string>
+
+    <string name="artist_put_on_list">Poner en el mercado</string>
+    <string name="artist_remove_from_list">Retirar del mercado</string>
+    <string name="artist_buy_for">Comprar por %1$s</string>
+    <string name="artist_budget_after">Presupuesto tras la compra · %1$s</string>
+    <string name="artist_market_listing_title">Precio · en venta %1$s</string>
+
+    <string name="activity_title">Actividad</string>
+    <string name="activity_mark_all_read">Marcar todo como leído</string>
+    <string name="activity_filter_all">Todo</string>
+    <string name="activity_filter_sales">Ventas</string>
+    <string name="activity_filter_purchases">Compras</string>
+    <string name="activity_filter_listings">Ofertas</string>
+    <string name="activity_today">Hoy</string>
+    <string name="activity_yesterday">Ayer</string>
+    <string name="activity_unread">No leído</string>
+    <string name="activity_sold_title">%1$s compró a %2$s</string>
+    <string name="activity_sold_subtitle">Precio pagado en su totalidad</string>
+    <string name="activity_bought_title">Has firmado a %1$s</string>
+    <string name="activity_bought_subtitle">De %1$s\nValor actual %2$s (+%3$s)</string>
+    <string name="activity_bought_subtitle_short">De %1$s</string>
+    <string name="activity_listed_title">%1$s está en el mercado</string>
+    <string name="activity_listed_subtitle">Precio %1$s</string>
+    <string name="activity_unlisted_title">%1$s ya no está en el mercado</string>
+    <string name="activity_unlisted_subtitle">Oferta retirada</string>
+    <string name="activity_empty_title">Aún no ha pasado nada</string>
+    <string name="activity_empty_message">Aquí aparecen los contratos y ofertas de tu sello. Pon un artista en el mercado o compra uno para empezar.</string>
+    <string name="activity_error_title">No se pudo cargar la actividad</string>
+
+    <string name="notification_channel_sales">Ventas de artistas</string>
+    <string name="notification_channel_sales_description">Cuando un sello rival compra uno de tus artistas</string>
+    <string name="notification_sale_title">%1$s compró a %2$s</string>
+    <string name="notification_sale_text">%1$s añadidos a tu presupuesto</string>
+
+    <string name="profile_title">Perfil</string>
+    <string name="profile_signed_in">Sesión iniciada</string>
+    <string name="profile_roster_value">%1$s de valor del roster</string>
+    <string name="profile_preferences">Preferencias</string>
+    <string name="profile_sale_alerts">Avisos de ventas</string>
+    <string name="profile_sale_alerts_hint">Un aviso cuando un sello rival compra a tu artista</string>
+    <string name="profile_appearance">Apariencia</string>
+    <string name="profile_theme_system">Sistema</string>
+    <string name="profile_theme_light">Claro</string>
+    <string name="profile_theme_dark">Oscuro</string>
+    <string name="profile_language">Idioma</string>
+    <string name="profile_version">Versión</string>
+    <string name="profile_sign_out">Cerrar sesión</string>
+    <string name="profile_sign_out_title">¿Cerrar sesión?</string>
+    <string name="profile_sign_out_message">Tu sello sigue a salvo en el servidor. Inicia sesión con %1$s para continuar donde lo dejaste.</string>
+</resources>

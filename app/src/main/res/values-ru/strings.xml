@@ -1,0 +1,289 @@
+<resources>
+    <string name="app_name">Label Manager</string>
+
+    <string name="common_back">Назад</string>
+    <string name="common_coming_soon_title">Почти готово</string>
+    <string name="common_coming_soon_message">Этот экран появится в следующем обновлении.</string>
+
+    <string name="welcome_title">Label Manager</string>
+    <string name="welcome_tagline">Создайте лейбл, торгуйте контрактами артистов на живом рынке и смотрите, как растёт стоимость ростера.</string>
+    <string name="welcome_fact_artists">16 артистов</string>
+    <string name="welcome_fact_budget">Бюджет $3M</string>
+    <string name="welcome_fact_market">Рынок 24/7</string>
+    <string name="welcome_create_account">Создать аккаунт</string>
+    <string name="welcome_sign_in">У меня уже есть аккаунт</string>
+    <string name="welcome_logo_description">Логотип Label Manager</string>
+
+    <string name="home_tab_roster">Ростер</string>
+    <string name="home_tab_market">Рынок</string>
+    <string name="home_tab_activity">События</string>
+    <string name="home_tab_profile">Профиль</string>
+
+    <string name="common_retry">Повторить</string>
+    <string name="common_close">Закрыть</string>
+    <string name="common_remove">Удалить %1$s</string>
+    <string name="common_clear_search">Очистить поиск</string>
+    <string name="common_amount_hidden">Сумма скрыта</string>
+    <string name="common_value_up">Рост</string>
+    <string name="common_value_down">Снижение</string>
+    <string name="common_show_budget">Показать бюджет</string>
+    <string name="common_hide_budget">Скрыть бюджет</string>
+    <string name="common_just_now">Только что</string>
+    <string name="common_loading">Загрузка</string>
+
+    <string name="auth_email_label">Email</string>
+    <string name="auth_email_placeholder">you@label.com</string>
+    <string name="auth_password_label">Пароль</string>
+    <string name="auth_repeat_password_label">Повторите пароль</string>
+    <string name="auth_email_invalid">Введите корректный email</string>
+    <string name="auth_email_taken">Аккаунт с таким email уже есть</string>
+    <string name="auth_password_mismatch">Пароли не совпадают</string>
+    <string name="auth_password_rule_length">От 8 символов</string>
+    <string name="auth_password_rule_letter">Буква</string>
+    <string name="auth_password_rule_digit">Цифра</string>
+    <string name="auth_password_rule_met">Выполнено</string>
+    <string name="auth_password_rule_missing">Не выполнено</string>
+    <string name="auth_error_credentials_title">Неверный email или пароль</string>
+    <string name="auth_error_credentials_message">Проверьте оба поля и попробуйте ещё раз.</string>
+    <string name="auth_error_network_title">Нет подключения</string>
+    <string name="auth_error_network_message">Проверьте интернет и попробуйте ещё раз.</string>
+    <string name="auth_error_generic_title">Что-то пошло не так</string>
+    <string name="auth_error_generic_message">Попробуйте ещё раз чуть позже.</string>
+
+    <string name="sign_in_title">С возвращением</string>
+    <string name="sign_in_subtitle">Войдите с email, на который создавали лейбл.</string>
+    <string name="sign_in_submit">Войти</string>
+    <string name="sign_in_footer">Впервые здесь?</string>
+    <string name="sign_in_footer_action">Создать аккаунт</string>
+
+    <string name="sign_up_title">Создайте лейбл</string>
+    <string name="sign_up_subtitle">Один аккаунт — один лейбл. Мы подпишем 16 артистов и откроем бюджет $3M.</string>
+    <string name="sign_up_submit">Создать лейбл</string>
+    <string name="sign_up_footer">Уже есть аккаунт?</string>
+    <string name="sign_up_footer_action">Войти</string>
+
+    <string name="label_ready_title">Ваш лейбл готов</string>
+    <string name="label_ready_subtitle">Мы подписали полный ростер и открыли бюджет.</string>
+    <string name="label_ready_country">%1$s · название можно поменять в любой момент</string>
+    <string name="label_ready_budget">Бюджет на сделки</string>
+    <string name="label_ready_budget_hint">Одинаковый для всех новых лейблов</string>
+    <string name="label_ready_roster_value">Стоимость ростера · артистов: %1$d</string>
+    <string name="label_ready_continue">К ростеру</string>
+    <string name="label_ready_error_title">Не удалось загрузить лейбл</string>
+    <string name="label_ready_error_message">Проверьте подключение и попробуйте ещё раз.</string>
+
+    <string name="genre_short_pop">POP</string>
+    <string name="genre_short_rock">RCK</string>
+    <string name="genre_short_hip_hop">HIP</string>
+    <string name="genre_short_electronic">EDM</string>
+
+    <string name="roster_edit_label">Изменить лейбл</string>
+    <string name="roster_budget">Бюджет</string>
+    <string name="roster_value">Стоимость ростера</string>
+    <plurals name="roster_artist_count">
+        <item quantity="one">%d артист</item>
+        <item quantity="few">%d артиста</item>
+        <item quantity="many">%d артистов</item>
+        <item quantity="other">%d артиста</item>
+    </plurals>
+    <string name="roster_search_placeholder">Поиск артистов</string>
+    <string name="roster_for_sale">Продаётся · %1$s</string>
+    <string name="roster_artist_meta">%1$s %2$s · %3$s</string>
+    <string name="roster_offline_title">Нет подключения</string>
+    <string name="roster_stale_title">Не удалось обновить ростер</string>
+    <string name="roster_stale_message">Показаны данные на %1$s</string>
+    <string name="roster_no_results_title">Нет артистов по запросу «%1$s»</string>
+    <string name="roster_no_results_message">Поиск идёт по имени и фамилии артистов в ростере. Попробуйте часть имени покороче.</string>
+    <string name="roster_error_title">Не удалось загрузить ростер</string>
+    <string name="roster_error_message">Проверьте подключение и попробуйте ещё раз.</string>
+
+    <plurals name="artist_age">
+        <item quantity="one">%d год</item>
+        <item quantity="few">%d года</item>
+        <item quantity="many">%d лет</item>
+        <item quantity="other">%d года</item>
+    </plurals>
+
+    <string name="genre_title_pop">Поп</string>
+    <string name="genre_title_rock">Рок</string>
+    <string name="genre_title_hip_hop">Хип-хоп</string>
+    <string name="genre_title_electronic">Электроника</string>
+
+    <string name="common_save">Сохранить</string>
+    <string name="common_country">Страна</string>
+    <string name="common_error_network">Нет подключения. Проверьте интернет и попробуйте ещё раз.</string>
+    <string name="common_error_generic">Что-то пошло не так. Попробуйте ещё раз.</string>
+
+    <string name="country_picker_title">Страна</string>
+    <string name="country_picker_search">Поиск страны</string>
+
+    <string name="genre_name_pop">Поп</string>
+    <string name="genre_name_rock">Рок</string>
+    <string name="genre_name_hip_hop">Хип-хоп</string>
+    <string name="genre_name_electronic">Электроника</string>
+
+    <string name="edit_label_title">Изменить лейбл</string>
+    <string name="edit_label_caption">Видно другим менеджерам на рынке</string>
+    <string name="edit_label_name_label">Название лейбла</string>
+    <string name="edit_label_name_invalid">От %1$d до %2$d символов</string>
+    <string name="edit_label_note">Бюджет и стоимость ростера определяет рынок, их нельзя изменить.</string>
+
+    <string name="edit_artist_title">Изменить артиста</string>
+    <string name="edit_artist_first_name">Имя</string>
+    <string name="edit_artist_last_name">Фамилия</string>
+    <string name="edit_artist_name_invalid">От 1 до %1$d символов</string>
+    <string name="edit_artist_summary">%1$s · %2$s · %3$s</string>
+    <string name="edit_artist_note">Возраст, жанр и рыночную стоимость задаёт игра, их нельзя изменить.</string>
+    <string name="edit_artist_not_found">Этого артиста больше нет в вашем ростере.</string>
+
+    <string name="artist_edit">Изменить</string>
+    <string name="artist_market_value">Рыночная стоимость</string>
+    <string name="artist_value_rise">%1$s с последней сделки</string>
+    <string name="artist_age_label">Возраст</string>
+    <string name="artist_hits">Хиты в чартах</string>
+    <string name="artist_label">Лейбл</string>
+    <string name="artist_listed_title">На рынке · %1$s</string>
+    <string name="artist_listed_price">Цена %1$s</string>
+    <string name="artist_price_above_value">На %1$s выше рыночной стоимости</string>
+    <string name="artist_price_below_value">На %1$s ниже рыночной стоимости</string>
+    <string name="artist_price_at_value">Равна рыночной стоимости</string>
+    <string name="artist_history_title">История контрактов</string>
+    <string name="artist_history_fee">Сумма сделки %1$s</string>
+    <string name="artist_history_value">Рыночная стоимость %1$s → %2$s</string>
+    <string name="artist_history_founding">Подписан при запуске лейбла · стоимость %1$s</string>
+    <string name="artist_error_title">Не удалось загрузить артиста</string>
+    <string name="artist_error_message">Проверьте подключение и попробуйте ещё раз.</string>
+
+    <string name="market_title">Рынок</string>
+    <string name="market_search_artists">Имя артиста</string>
+    <string name="market_search_labels">Название лейбла</string>
+    <string name="market_scope_artists">Артисты</string>
+    <string name="market_scope_labels">Лейблы</string>
+    <string name="market_filters">Фильтры</string>
+    <string name="market_filters_active">Фильтры, активно: %1$d</string>
+    <string name="market_clear">Сбросить</string>
+    <string name="market_listings">Объявления</string>
+    <string name="market_sort_newest">Новые</string>
+    <string name="market_sort_price_ascending">Дешевле</string>
+    <string name="market_sort_price_descending">Дороже</string>
+    <string name="market_listing_meta">%1$s · %2$s · %3$s</string>
+    <string name="market_buy">Купить</string>
+    <string name="market_yours">Ваш</string>
+    <string name="market_sell_artist">Продать артиста</string>
+    <string name="market_chip_price_range">%1$s–%2$s</string>
+    <string name="market_chip_price_from">От %1$s</string>
+    <string name="market_chip_price_up_to">До %1$s</string>
+    <string name="market_chip_artist_country">%1$s Артисты: %2$s</string>
+    <string name="market_chip_label_country">%1$s Лейблы: %2$s</string>
+    <string name="market_empty_title">На рынке тихо</string>
+    <string name="market_empty_message">Сейчас никто не продаёт. Лейблы-конкуренты выставляют артистов каждые несколько минут — потяните вниз, чтобы обновить.</string>
+    <string name="market_no_results_title">По этим фильтрам ничего нет</string>
+    <string name="market_no_results_message">Расширьте диапазон цен или загляните позже — лейблы-конкуренты выставляют артистов каждые несколько минут.</string>
+    <string name="market_clear_filters">Сбросить фильтры</string>
+    <string name="market_error_title">Не удалось загрузить рынок</string>
+    <string name="market_error_message">Проверьте подключение и попробуйте ещё раз.</string>
+    <string name="market_load_more_failed">Не удалось загрузить ещё артистов</string>
+
+    <string name="filters_title">Фильтры</string>
+    <string name="filters_price">Цена</string>
+    <string name="filters_price_any">Любая цена</string>
+    <string name="filters_genre">Жанр</string>
+    <string name="filters_country">Страна</string>
+    <string name="filters_artist_country">Страна артиста</string>
+    <string name="filters_label_country">Страна лейбла</string>
+    <string name="filters_any">Любая</string>
+    <string name="filters_reset">Сбросить</string>
+    <string name="filters_show_count">Показать %1$s</string>
+    <string name="filters_show">Показать артистов</string>
+    <plurals name="filters_artist_count">
+        <item quantity="one">%d артиста</item>
+        <item quantity="few">%d артистов</item>
+        <item quantity="many">%d артистов</item>
+        <item quantity="other">%d артиста</item>
+    </plurals>
+    <string name="country_picker_any">Любая страна</string>
+
+    <string name="market_buy_budget">Ваш бюджет</string>
+    <string name="market_buy_price">Цена</string>
+    <string name="market_buy_after">Останется</string>
+    <string name="market_buy_short_label">Не хватает</string>
+    <string name="market_buy_note" formatted="false">После сделки стоимость вырастет на 5% за каждый хит, но не больше чем на 50%.</string>
+    <string name="market_buy_short">Не хватает %1$s. Сначала продайте артиста — цена продажи сразу пойдёт в бюджет.</string>
+    <string name="market_buy_confirm">Подтвердить покупку</string>
+    <string name="market_buy_cancel">Отмена</string>
+    <string name="market_buy_not_now">Не сейчас</string>
+    <string name="market_buy_gone">Кто-то оказался быстрее — этот артист больше не продаётся.</string>
+
+    <string name="deal_done_welcome">Добро пожаловать в %1$s</string>
+    <string name="deal_done_new_value">Новая рыночная стоимость</string>
+    <string name="deal_done_paid">Вы заплатили</string>
+    <string name="deal_done_budget_left">Остаток бюджета</string>
+    <string name="deal_done_see_artist">Открыть в ростере</string>
+    <string name="deal_done_back">Вернуться на рынок</string>
+
+    <string name="select_artist_title">Продать артиста</string>
+    <string name="select_artist_intro">Выберите, кого выставить на рынок. Цену зададите на следующем шаге.</string>
+    <string name="select_artist_search">Поиск по ростеру</string>
+
+    <string name="create_listing_title">Новое объявление</string>
+    <string name="create_listing_price_label">Цена</string>
+    <string name="create_listing_price_invalid">Введите цену больше $0</string>
+    <string name="create_listing_quick_value">Стоимость</string>
+    <string name="create_listing_above">На %1$s выше стоимости (+%2$s).</string>
+    <string name="create_listing_below">На %1$s ниже стоимости (−%2$s).</string>
+    <string name="create_listing_at_value">Ровно рыночная стоимость.</string>
+    <string name="create_listing_buyer_pays">Покупатель заплатит ровно эту цену, и она сразу поступит в ваш бюджет.</string>
+    <string name="create_listing_submit">Выставить за %1$s</string>
+    <string name="create_listing_submit_empty">Выставить артиста</string>
+    <string name="create_listing_footer">Снять объявление можно в любой момент до продажи.</string>
+    <string name="create_listing_already_listed">Этот артист уже выставлен на рынок.</string>
+
+    <string name="artist_put_on_list">Выставить на рынок</string>
+    <string name="artist_remove_from_list">Снять с рынка</string>
+    <string name="artist_buy_for">Купить за %1$s</string>
+    <string name="artist_budget_after">Бюджет после покупки · %1$s</string>
+    <string name="artist_market_listing_title">Цена · выставлен %1$s</string>
+
+    <string name="activity_title">События</string>
+    <string name="activity_mark_all_read">Прочитать все</string>
+    <string name="activity_filter_all">Все</string>
+    <string name="activity_filter_sales">Продажи</string>
+    <string name="activity_filter_purchases">Покупки</string>
+    <string name="activity_filter_listings">Объявления</string>
+    <string name="activity_today">Сегодня</string>
+    <string name="activity_yesterday">Вчера</string>
+    <string name="activity_unread">Не прочитано</string>
+    <string name="activity_sold_title">%1$s купил %2$s</string>
+    <string name="activity_sold_subtitle">Цена оплачена полностью</string>
+    <string name="activity_bought_title">Вы подписали %1$s</string>
+    <string name="activity_bought_subtitle">Из %1$s\nСтоимость теперь %2$s (+%3$s)</string>
+    <string name="activity_bought_subtitle_short">Из %1$s</string>
+    <string name="activity_listed_title">%1$s выставлен на рынок</string>
+    <string name="activity_listed_subtitle">Цена %1$s</string>
+    <string name="activity_unlisted_title">%1$s снят с рынка</string>
+    <string name="activity_unlisted_subtitle">Объявление удалено</string>
+    <string name="activity_empty_title">Пока ничего не произошло</string>
+    <string name="activity_empty_message">Здесь появятся сделки и объявления вашего лейбла. Выставьте артиста на рынок или купите кого-нибудь, чтобы начать.</string>
+    <string name="activity_error_title">Не удалось загрузить события</string>
+
+    <string name="notification_channel_sales">Продажи артистов</string>
+    <string name="notification_channel_sales_description">Когда лейбл-конкурент покупает вашего артиста</string>
+    <string name="notification_sale_title">%1$s купил %2$s</string>
+    <string name="notification_sale_text">%1$s поступило в ваш бюджет</string>
+
+    <string name="profile_title">Профиль</string>
+    <string name="profile_signed_in">Вы вошли</string>
+    <string name="profile_roster_value">Стоимость ростера %1$s</string>
+    <string name="profile_preferences">Настройки</string>
+    <string name="profile_sale_alerts">Уведомления о продажах</string>
+    <string name="profile_sale_alerts_hint">Уведомление, когда лейбл-конкурент покупает вашего артиста</string>
+    <string name="profile_appearance">Оформление</string>
+    <string name="profile_theme_system">Системное</string>
+    <string name="profile_theme_light">Светлое</string>
+    <string name="profile_theme_dark">Тёмное</string>
+    <string name="profile_language">Язык</string>
+    <string name="profile_version">Версия</string>
+    <string name="profile_sign_out">Выйти</string>
+    <string name="profile_sign_out_title">Выйти из аккаунта?</string>
+    <string name="profile_sign_out_message">Ваш лейбл сохранится на сервере. Войдите с %1$s, чтобы продолжить с того же места.</string>
+</resources>
