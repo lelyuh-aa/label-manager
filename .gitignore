@@ -1,0 +1,22 @@
+# Gradle
+.gradle/
+build/
+.kotlin/
+
+# Local configuration
+local.properties
+
+# IDE
+.idea/
+*.iml
+captures/
+
+# Native build output
+.externalNativeBuild/
+.cxx/
+
+# macOS
+.DS_Store
+
+# Data written by the local API server
+server/data/
