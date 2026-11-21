@@ -7,6 +7,25 @@ The repository holds a native Android app and the REST API it talks to. The API 
 in Kotlin and runs both as a real HTTP server and inside the app, so the app works out of the box
 without any server, and switching it to the real server changes only the transport.
 
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="docs/images/welcome.png" width="200" alt="Welcome screen"></td>
+    <td><img src="docs/images/roster.png" width="200" alt="Roster"></td>
+    <td><img src="docs/images/artist.png" width="200" alt="Artist profile"></td>
+    <td><img src="docs/images/market.png" width="200" alt="Market"></td>
+  </tr>
+  <tr>
+    <td><img src="docs/images/deal-done.png" width="200" alt="Deal summary"></td>
+    <td><img src="docs/images/activity.png" width="200" alt="Activity feed"></td>
+    <td><img src="docs/images/roster-dark.png" width="200" alt="Roster in the dark theme"></td>
+    <td><img src="docs/images/profile-dark.png" width="200" alt="Profile in the dark theme"></td>
+  </tr>
+</table>
+
+The images are Compose previews rendered by the screenshot tests.
+
 ## Features
 
 - **Accounts**: sign up and sign in with email and password; one label per account. Tokens are kept
