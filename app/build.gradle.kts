@@ -68,6 +68,8 @@ android {
 
     testOptions {
         unitTests.isIncludeAndroidResources = true
+        // Dates in previews follow the system zone; a fixed zone keeps screenshots equal on every machine.
+        unitTests.all { it.systemProperty("user.timezone", "UTC") }
     }
 }
 
