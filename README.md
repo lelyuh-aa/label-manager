@@ -127,3 +127,7 @@ tests that keep the images of any differences as an artifact.
 - Add a release build and instrumented UI tests to CI.
 - Push notifications from the server instead of periodic checks.
 - Offline support for the market and the activity feed.
+
+## License
+
+Released under the [MIT License](LICENSE).
